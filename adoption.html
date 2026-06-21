@@ -47,7 +47,7 @@
     <div class="steps">
       <div class="step">
         <h3>Connect &amp; observe</h3>
-        <p>Stand Greyquill up in hard multi-tenant isolation on infrastructure you control (native deploy, no Docker: Fastify API under pm2/systemd, Postgres, behind your reverse proxy). Point your existing ADT feed at the HL7 v2 ingest endpoint <code>POST /hl7/v2/ingest</code>: admit (A01), discharge (A03) and update (A08) events parse from MSH/PID segments and mirror patient state into Greyquill automatically. Nothing changes for existing staff, you are simply observing the platform stay in sync.</p>
+        <p>Stand Greyquill up in hard multi-tenant isolation on infrastructure you control, reached securely over your own domain. Point your existing ADT feed at the HL7 v2 ingest endpoint <code>POST /hl7/v2/ingest</code>: admit (A01), discharge (A03) and update (A08) events parse from MSH/PID segments and mirror patient state into Greyquill automatically. Nothing changes for existing staff, you are simply observing the platform stay in sync.</p>
       </div>
       <div class="step">
         <h3>Pilot one department</h3>
@@ -88,15 +88,15 @@
         </tr>
         <tr>
           <td><strong>"Downtime or disruption to patient care."</strong></td>
-          <td>The rollout is phased and department-by-department, and the pilot runs in parallel with your live systems, so a single team going live does not touch the rest of the hospital. Deployment is native on your own infrastructure, and every deploy runs a per-persona smoke check (each role's worklist plus a cross-role 403 check) as an automated go/no-go gate.</td>
+          <td>The rollout is phased and department-by-department, and the pilot runs in parallel with your live systems, so a single team going live does not touch the rest of the hospital. The platform runs on your own infrastructure, and every release is automatically checked, role by role, as a go/no-go gate before it reaches users.</td>
         </tr>
         <tr>
           <td><strong>"Staff training and change fatigue."</strong></td>
-          <td>It is one consistent app (web + mobile from a single Flutter codebase) with role-scoped views: staff only ever see their own workflow. You roll out to one team at a time, so training is focused and incremental rather than a hospital-wide relearning event.</td>
+          <td>It is one consistent app (web and mobile from a single codebase) with role-scoped views: staff only ever see their own workflow. You roll out to one team at a time, so training is focused and incremental rather than a hospital-wide relearning event.</td>
         </tr>
         <tr>
           <td><strong>"Security and patient-data compliance."</strong></td>
-          <td>Role-Based Access Control with ~28 granular permissions, deny-by-default: every endpoint is guarded and a missing permission returns <code>HTTP 403</code>. Hard multi-tenant isolation (every query is scoped to the caller's tenant at the data layer, not just the UI). A complete audit trail captures every successful staff write, with the acting user, the patient, and the action. <a href="platform.html">See Platform &amp; Security →</a></td>
+          <td>Fine-grained, deny-by-default role-based access control: every action is guarded and a missing permission is refused outright. Hard per-facility data isolation, enforced where data is read and written, not just in the UI. A complete audit trail captures every successful staff write, with the acting user, the patient, and the action. <a href="platform.html">See Platform &amp; Security →</a></td>
         </tr>
         <tr>
           <td><strong>"Vendor lock-in."</strong></td>
@@ -132,7 +132,7 @@
       </div>
       <div class="card">
         <h3><span class="ico">▣</span> Modern web + mobile, one codebase</h3>
-        <p class="muted">Staff and patient apps are built from a single Flutter codebase, web and mobile together, so what staff use on the floor and what patients use on their phones stay consistent and move forward in lockstep.</p>
+        <p class="muted">Staff and patient apps are built from a single codebase, web and mobile together, so what staff use on the floor and what patients use on their phones stay consistent and move forward in lockstep.</p>
       </div>
       <div class="card t">
         <h3><span class="ico">⇄</span> Standards-native interoperability</h3>

@@ -38,46 +38,41 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Architecture</span>
-      <h2>One logical backend, one frontend codebase</h2>
-      <p class="muted">A modern, modular stack: a single Fastify API serving every persona, a Flutter
-      app that ships to web and mobile from one codebase, and a FHIR-aligned data model underneath.</p>
+      <h2>One platform, your data, your control</h2>
+      <p class="muted">A single secure system serves every role, with modern web and mobile apps and an
+      enterprise clinical data model designed around healthcare standards. One place to secure, back up
+      and govern, and your records stay yours.</p>
     </div>
 
     <div class="grid g3">
       <div class="card">
-        <h3><span class="ico">A</span> API layer</h3>
-        <p class="muted">Fastify on Node.js, written end to end in TypeScript. Modular,
-        per-feature design: each capability is its own slice, all composed into one logical backend
-        and one deployment.</p>
+        <h3><span class="ico">◻</span> One secure backend</h3>
+        <p class="muted">Every role runs on one logical system rather than a patchwork of point tools,
+        so there is a single surface to secure, back up, monitor and govern.</p>
       </div>
       <div class="card">
-        <h3><span class="ico">D</span> Data layer</h3>
-        <p class="muted">Drizzle ORM over PostgreSQL. A ~55-table, FHIR R4-aligned data model is the
-        single source of truth for clinical, revenue, pharmacy, lab, imaging, facilities, EMS and
-        compliance data.</p>
+        <h3><span class="ico">◇</span> Your data, portable</h3>
+        <p class="muted">An enterprise clinical data model built around healthcare standards. Your
+        records are never trapped: a complete patient record can be exported on demand over FHIR R4, so
+        there is no lock-in.</p>
       </div>
       <div class="card t">
-        <h3><span class="ico">F</span> Client layer</h3>
-        <p class="muted">Flutter staff app and patient app: web and mobile delivered from one shared
-        codebase, so behaviour stays consistent across desktop, tablet and phone.</p>
+        <h3><span class="ico">▢</span> Web and mobile</h3>
+        <p class="muted">Staff and patient apps work across desktop, tablet and phone, with consistent
+        behaviour everywhere, so there is nothing extra to install or maintain per device.</p>
       </div>
     </div>
 
     <hr class="soft">
 
-    <h3>How a request flows</h3>
-    <p class="muted">Every staff request passes the same gates before it ever touches data, and clinical
-    writes are recorded after the response is sent.</p>
-    <pre><code>Client (Flutter)
-   │  authenticated request  (staff: email + password · patient: phone + OTP)
-   ▼
-Fastify route
-   ├─ permission guard       → missing permission?  → HTTP 403
-   ├─ tenant scope           → every query: WHERE tenant_id = caller's tenant
-   ▼
-Drizzle ORM → PostgreSQL     → response returned to client
-   │
-   └─ onResponse hook (non-blocking) → successful staff write → audit_events</code></pre>
+    <h3>How every request is protected</h3>
+    <p class="muted">Before any request reaches data, it passes the same checks, every time:</p>
+    <ul class="check">
+      <li><strong>Authenticated</strong> — staff sign in with email and password; patients sign in passwordless by phone and OTP.</li>
+      <li><strong>Permission-checked</strong> — the request must carry the specific permission its action requires, or it is refused with <code>HTTP 403</code>.</li>
+      <li><strong>Tenant-scoped</strong> — the request can only ever touch the caller's own facility's data, enforced where data is read and written.</li>
+      <li><strong>Recorded</strong> — every successful change is written to the audit trail, automatically and without slowing the action down.</li>
+    </ul>
   </div>
 </section>
 
@@ -86,10 +81,10 @@ Drizzle ORM → PostgreSQL     → response returned to client
     <div class="section-head">
       <span class="eyebrow">Access control</span>
       <h2>Role-based access control on every endpoint</h2>
-      <p class="muted">Roles do not just hide buttons in the UI. The server enforces about 28 granular
-      permissions, and every endpoint declares the permission it requires. If the caller's account does
-      not hold that permission, the request is rejected with <code>HTTP 403</code>, regardless of what
-      the client app shows.</p>
+      <p class="muted">Roles do not just hide buttons in the UI. Access is enforced on the server with
+      fine-grained permissions, and every action requires the specific permission it needs. If the
+      caller's account does not hold that permission, the request is rejected with <code>HTTP 403</code>,
+      regardless of what the client app shows.</p>
     </div>
 
     <p>There are 13 staff roles plus a patient app, all behind one unified staff login: the role and its
@@ -192,18 +187,17 @@ Drizzle ORM → PostgreSQL     → response returned to client
     <div class="section-head">
       <span class="eyebrow">Audit &amp; compliance</span>
       <h2>Every clinical write is on the record</h2>
-      <p class="muted">The platform records who changed state, not who looked. A non-blocking
-      <code>onResponse</code> hook captures every successful staff write into an
-      <code>audit_events</code> table.</p>
+      <p class="muted">The platform records who changed state, not who looked. Every successful staff
+      change is captured to a tamper-evident audit trail, automatically and without ever slowing the
+      action down.</p>
     </div>
 
     <div class="grid g3">
       <div class="card">
         <h3><span class="ico">W</span> What is captured</h3>
-        <p class="muted">Successful staff writes on <code>/staff</code> routes:
-        <code>POST</code>, <code>PUT</code>, <code>PATCH</code> and <code>DELETE</code> with a
-        <code>2xx</code>/<code>3xx</code> response. Each entry records the acting user, the patient
-        (when patient-scoped) and the action.</p>
+        <p class="muted">Every successful change a staff member makes, whether to a clinical, billing or
+        operational record. Each entry records the acting user, the patient (when relevant) and the
+        action taken.</p>
       </div>
       <div class="card">
         <h3><span class="ico">R</span> What is not</h3>
@@ -231,31 +225,30 @@ Drizzle ORM → PostgreSQL     → response returned to client
     <div class="section-head">
       <span class="eyebrow">Deployment &amp; operations</span>
       <h2>Release safety the hospital can rely on</h2>
-      <p class="muted">A native deployment with no Docker, predictable database migrations, and an
-      automated per-persona check that gates every release.</p>
+      <p class="muted">It runs on infrastructure you control, with secure access over your own domain,
+      controlled upgrades, and an automated check that gates every release.</p>
     </div>
 
     <div class="grid g3">
       <div class="card">
-        <h3><span class="ico">N</span> Native deploy</h3>
-        <p class="muted">The Fastify API runs under <code>pm2</code> or <code>systemd</code> against
-        PostgreSQL, behind a reverse proxy, with a Cloudflare tunnel providing TLS and the public
-        hostname. No container runtime to operate.</p>
+        <h3><span class="ico">N</span> Runs on your infrastructure</h3>
+        <p class="muted">The platform runs on servers you control, reached securely over your own
+        domain with encryption in transit. Nothing leaves your environment that you do not choose to
+        send.</p>
       </div>
       <div class="card">
-        <h3><span class="ico">M</span> Tracked migrations</h3>
-        <p class="muted">Database changes are idempotent and tracked: a <code>_migrations</code> table
-        records each <code>.sql</code> so it applies exactly once, transactionally. A migration either
-        lands cleanly or rolls back.</p>
+        <h3><span class="ico">M</span> Controlled upgrades</h3>
+        <p class="muted">Updates are applied in a controlled, repeatable way: each change either lands
+        cleanly or is rolled back, so an upgrade never leaves your system in a half-applied state.</p>
       </div>
       <div class="card t">
-        <h3><span class="ico">S</span> Smoke gate</h3>
-        <p class="muted">A per-persona smoke check runs on every release as an automated go / no-go
-        gate, before the change is considered live.</p>
+        <h3><span class="ico">S</span> Release gate</h3>
+        <p class="muted">An automated check runs on every release as a go / no-go gate, before the
+        change is considered live for your users.</p>
       </div>
     </div>
 
-    <h3 style="margin-top:30px">What the release smoke check actually does</h3>
+    <h3 style="margin-top:30px">What the release check confirms</h3>
     <div class="steps">
       <div class="step">
         <h3>Logs in as each role</h3>
