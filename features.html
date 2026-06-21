@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capabilities · Greyquill Health Platform</title>
+<meta name="description" content="Greyquill Health Platform — a white-label, multi-tenant hospital operating system with FHIR R4 and HL7 v2 interoperability, role-based clinical, revenue, pharmacy, lab, imaging, facilities, EMS and compliance modules.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span> Greyquill Health Platform</a>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a class="active" href="features.html">Capabilities</a>
+      <a href="interoperability.html">Interoperability</a>
+      <a href="platform.html">Platform &amp; Security</a>
+      <a href="adoption.html">Adoption</a>
+      <a class="cta" href="demo.html">Request a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">What it does</span>
+    <h1>Every role, every workflow, in one platform</h1>
+    <p class="lead">One logical backend, one staff login, and a worklist purpose-built for each person on
+    the floor. This is the full capabilities manual: 70 delivered modules organized by the department and
+    role that uses them, from the bedside to the billing desk to the ambulance bay.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How to read this page</span>
+      <h2>13 staff roles and a patient app, on one backend</h2>
+      <p class="muted">Staff sign in once with email and password; the screens they see, and the actions
+      they can take, come from their role and granular permissions on the account. Patients use their own
+      app, signing in passwordless by phone and OTP. Every list and screen below returns live, seeded data
+      in the demo build.</p>
+    </div>
+    <div class="grid g4">
+      <div class="stat"><div class="n">70</div><div class="l">Delivered modules</div></div>
+      <div class="stat"><div class="n">13+1</div><div class="l">Staff roles + patient app</div></div>
+      <div class="stat"><div class="n">~28</div><div class="l">Granular RBAC permissions</div></div>
+      <div class="stat"><div class="n">55</div><div class="l">Database tables</div></div>
+    </div>
+    <p class="muted center" style="margin-top:14px">
+      <span class="badge t">Live demo build</span>
+      <span class="badge a">Seeded sample data</span>
+      <span class="badge">FHIR R4-aligned</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ CLINICAL CARE ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Clinical care</span>
+      <h2>At the bedside and in the consult room</h2>
+      <p class="muted">The clinical core: how doctors run their day, place orders, prescribe, document,
+      and get decision support inline.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#129658;</span> Doctor</h3>
+        <p class="tag">Login persona: Doctor</p>
+        <p>The treating clinician's command center, from the daily schedule to the chart to order entry,
+        with decision support and safety checks surfaced where care is decided.</p>
+        <ul class="check">
+          <li><strong>Patient panel</strong> — the doctor's roster of patients under their care.</li>
+          <li><strong>Daily schedule</strong> — the day's appointments and rounds at a glance.</li>
+          <li><strong>Chart summary</strong> — a consolidated view of the patient's record.</li>
+          <li><strong>Clinical notes</strong> — structured documentation of the encounter.</li>
+          <li><strong>Order entry</strong> — place lab, imaging, and other service orders.</li>
+          <li><strong>Orders &amp; results</strong> — track placed orders and review returned results.</li>
+          <li><strong>e-Prescribe</strong> — issue medication orders that flow to pharmacy.</li>
+          <li><strong>Clinical decision support</strong> — risk scores plus drug and allergy safety alerts.</li>
+          <li><strong>Telemed</strong> — remote consult worklist (see roadmap note below on video).</li>
+        </ul>
+      </div>
+
+      <div class="card t">
+        <h3><span class="ico">&#128737;</span> Clinical decision support</h3>
+        <p class="tag">Surfaced inline, where care is decided</p>
+        <p>CDS is not a separate destination. It rides along with the clinical workflow so the right
+        prompt appears at the moment of the decision, not after.</p>
+        <div class="callout t">
+          <strong>What CDS means here:</strong> two things, surfaced inline. <strong>Risk scores</strong>
+          computed from the patient's data, and <strong>drug / allergy safety alerts</strong> raised when an
+          order or prescription could cause harm. They appear within order entry, e-prescribe, and the chart
+          rather than in a report you have to go find.
+        </div>
+        <p class="muted" style="margin-top:14px">The same coded clinical data behind these checks is what the
+        platform also exposes over standards-based APIs. See
+        <a href="interoperability.html">Interoperability</a> for how problems, allergies, medications, and
+        observations leave the building as FHIR resources.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NURSING & WARD ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Nursing &amp; ward</span>
+      <h2>The ward, run from the floor</h2>
+      <p class="muted">Bedside nursing tasks and ward-level bed management, kept distinct so the right person
+      owns the right view.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128138;</span> Nurse</h3>
+        <p class="tag">Login persona: Nurse</p>
+        <p>Everything a nurse touches across a shift: the medication pass, vitals, notes, the task list,
+        and a clean handover.</p>
+        <ul class="check">
+          <li><strong>eMAR / medication pass</strong> — the electronic medication administration record.</li>
+          <li><strong>Record vitals</strong> — capture observations at the bedside.</li>
+          <li><strong>Nursing notes</strong> — shift documentation tied to the patient.</li>
+          <li><strong>Task list</strong> — the nurse's outstanding actions.</li>
+          <li><strong>SBAR handover</strong> — a structured situation-background-assessment-recommendation handoff.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="ico">&#129505;</span> Head Nurse</h3>
+        <p class="tag">Login persona: Head Nurse</p>
+        <p>The charge nurse's view of capacity across the unit.</p>
+        <ul class="check">
+          <li><strong>Ward board</strong> — bed management across wards: who is where, what is open.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVENUE CYCLE ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Revenue cycle</span>
+      <h2>From charge to cash</h2>
+      <p class="muted">The billing desk's full accounts-receivable workflow, including the parts that
+      actually recover money: denials and reconciliation.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128181;</span> Biller</h3>
+        <p class="tag">Login persona: Biller</p>
+        <p>A complete revenue-cycle management worklist, not just invoice printing: the path from open
+        receivable to posted payment to chased denial.</p>
+        <ul class="check">
+          <li><strong>AR worklist</strong> — outstanding accounts receivable to work.</li>
+          <li><strong>Invoice detail</strong> — line-level view of an individual invoice.</li>
+          <li><strong>Payment posting</strong> — record payments against invoices.</li>
+          <li><strong>Denials follow-up queue</strong> — work rejected and denied claims.</li>
+          <li><strong>Payments reconciliation ledger</strong> — match payments to expected amounts.</li>
+        </ul>
+      </div>
+
+      <div class="card t">
+        <h3><span class="ico">&#128202;</span> Why this matters</h3>
+        <p>Revenue leaks at the seams: denials that nobody chases, payments that never get reconciled.
+        Greyquill puts those steps in the same worklist as the invoice, so the recovery work has an owner
+        and a queue.</p>
+        <ul class="plain muted">
+          <li>Denials have a dedicated follow-up queue, not a spreadsheet.</li>
+          <li>Reconciliation is a ledger, so a payment either matches or it surfaces.</li>
+          <li>The admin KPI rollup includes AR invoices, so leadership sees the same numbers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHARMACY & LABORATORY ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pharmacy &amp; laboratory</span>
+      <h2>Dispense and diagnose</h2>
+      <p class="muted">Two diagnostic-and-therapeutic services that close the loop on a doctor's orders:
+      pharmacy fills the prescription, the lab returns the result.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128138;</span> Pharmacist</h3>
+        <p class="tag">Login persona: Pharmacist</p>
+        <p>The dispensing workflow and the stock that backs it. e-Prescribed orders arrive in the queue;
+        inventory keeps them fillable.</p>
+        <ul class="check">
+          <li><strong>Dispense queue</strong> — prescriptions waiting to be filled.</li>
+          <li><strong>Pharmacy inventory</strong> — stock on hand for dispensing.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3><span class="ico">&#129514;</span> Lab Tech</h3>
+        <p class="tag">Login persona: Lab Tech</p>
+        <p>The laboratory bench: track the specimen, enter the result, send it back to the ordering clinician.</p>
+        <ul class="check">
+          <li><strong>Lab result entry</strong> — record results against the order.</li>
+          <li><strong>Specimen tracking</strong> — follow the sample from collection to result.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:18px">Lab and pharmacy data flow over standards too: results can be
+    generated as outbound HL7 v2 ORU messages to an existing LIS, and e-prescribed medications appear in the
+    FHIR <code>MedicationRequest</code> feed. See <a href="interoperability.html">Interoperability</a>.</p>
+  </div>
+</section>
+
+<!-- ============ IMAGING ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Imaging</span>
+      <h2>The modality worklist</h2>
+      <p class="muted">Radiology operations: the day's studies, capture, and quality control at the machine.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#129687;</span> Radiographer</h3>
+        <p class="tag">Login persona: Radiographer</p>
+        <p>The technologist's view at the imaging suite, from worklist to captured image with a QC step.</p>
+        <ul class="check">
+          <li><strong>Imaging modality worklist</strong> — the studies queued for this modality.</li>
+          <li><strong>Image capture + QC</strong> — record the study and quality-check it before release.</li>
+        </ul>
+      </div>
+
+      <div class="card a">
+        <h3><span class="ico">&#128221;</span> On the roadmap</h3>
+        <p>Greyquill manages the imaging <em>workflow</em> today: the worklist, capture, and QC.</p>
+        <div class="callout a">
+          <strong>Phased:</strong> DICOM / PACS image transport (moving the pixel data itself between
+          devices and viewers) is on the roadmap, not yet shipped. The platform handles the orders, the
+          worklist, and the operational record around the study.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FACILITIES & BIOMEDICAL ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Facilities &amp; biomedical</span>
+      <h2>The building and the equipment in it</h2>
+      <p class="muted">The infrastructure that keeps clinical care running: assets, work orders, preventive
+      maintenance, and the calibration of medical devices.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128295;</span> Facilities Tech</h3>
+        <p class="tag">Login persona: Facilities Tech</p>
+        <p>A full facilities and biomedical engineering workflow, including the regulated part: keeping
+        clinical equipment calibrated and in service.</p>
+        <ul class="check">
+          <li><strong>Asset register</strong> — the inventory of physical assets.</li>
+          <li><strong>Work-order queue</strong> — maintenance jobs to action.</li>
+          <li><strong>Preventive-maintenance (PM) schedule</strong> — planned servicing before things break.</li>
+          <li><strong>Biomedical equipment service</strong> — calibration tracking for medical devices.</li>
+        </ul>
+      </div>
+
+      <div class="card t">
+        <h3><span class="ico">&#9889;</span> Why biomedical lives here</h3>
+        <p>Clinical equipment is a patient-safety asset. Tracking calibration and PM in the same system as
+        the work-order queue means an out-of-date device shows up before it is used, not after.</p>
+        <ul class="plain muted">
+          <li>Calibration tracking ties each device to its service history.</li>
+          <li>PM schedules drive work orders proactively.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMS ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Emergency &amp; ambulance (EMS)</span>
+      <h2>From the field to the ED</h2>
+      <p class="muted">Ambulance operations and the handoff that bridges pre-hospital care into the
+      emergency department.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128657;</span> EMS Crew</h3>
+        <p class="tag">Login persona: EMS Crew</p>
+        <p>The ambulance crew's operational picture, from unit status to the moment the patient is handed to
+        the ED.</p>
+        <ul class="check">
+          <li><strong>Ambulance unit status board</strong> — which units are available, on a run, or out of service.</li>
+          <li><strong>Dispatch + ED handoff</strong> — manage the run and pass the patient to the emergency department.</li>
+          <li><strong>Completed trip history</strong> — the record of finished runs.</li>
+        </ul>
+      </div>
+
+      <div class="card t">
+        <h3><span class="ico">&#127973;</span> The handoff seam</h3>
+        <p>The hardest moment in EMS is the handoff: the crew knows the story, the ED needs it fast. Greyquill
+        keeps dispatch and ED handoff in one flow so the field record arrives with the patient.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUTPATIENT CLINICS ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Outpatient clinics</span>
+      <h2>Running the clinic day</h2>
+      <p class="muted">The coordination layer for outpatient operations: managing clinics and reporting on
+      the day.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128197;</span> Clinic Coordinator</h3>
+        <p class="tag">Login persona: Clinic Coordinator</p>
+        <p>The front-of-house owner for outpatient clinics, from session management to end-of-day reporting.</p>
+        <ul class="check">
+          <li><strong>Outpatient clinic management</strong> — organize clinic sessions and flow.</li>
+          <li><strong>Clinic day reports</strong> — the day's outpatient activity.</li>
+        </ul>
+      </div>
+
+      <div class="card t">
+        <h3><span class="ico">&#128100;</span> Connects to</h3>
+        <p>Outpatient clinics share the same patient, scheduling, and ordering backbone the doctor and patient
+        apps use, so a clinic visit is the same record everywhere, not a separate silo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKFORCE & CREDENTIALING ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Workforce &amp; credentialing</span>
+      <h2>The people, licensed and staffed</h2>
+      <p class="muted">HR operations with a clinical edge: keeping every clinician's licenses current and the
+      hospital staffed.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128188;</span> HR Manager</h3>
+        <p class="tag">Login persona: HR Manager</p>
+        <p>Workforce management built for a hospital, where an expired license is a compliance and safety
+        event, not just an HR note.</p>
+        <ul class="check">
+          <li><strong>Staff credentialing vault</strong> — license and credential expiry tracking, with verify.</li>
+          <li><strong>Hospital staffing overview</strong> — who is on, where the gaps are.</li>
+        </ul>
+      </div>
+
+      <div class="card a">
+        <h3><span class="ico">&#9888;</span> Credentialing as safety</h3>
+        <p>An out-of-date license should stop a shift, not surface at an audit. The credentialing vault tracks
+        expiry and supports a verify step, so the hospital can see expiring credentials ahead of time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOVERNANCE & COMPLIANCE ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Governance &amp; compliance</span>
+      <h2>Who changed state, on the record</h2>
+      <p class="muted">A tamper-evident audit trail and the role that reads it.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128270;</span> Compliance Officer</h3>
+        <p class="tag">Login persona: Compliance Officer</p>
+        <p>Read-only oversight of the platform's audit trail, the system of record for what staff did.</p>
+        <ul class="check">
+          <li><strong>Audit / compliance log</strong> — read-only view over the audit trail.</li>
+        </ul>
+      </div>
+
+      <div class="card t">
+        <h3><span class="ico">&#128221;</span> How the audit trail works</h3>
+        <p>Every successful staff <em>write</em> is captured automatically: a non-blocking hook records the
+        acting user, the patient (when patient-scoped), and the action, after the response is already sent.</p>
+        <div class="callout t">
+          <strong>Design principle:</strong> "who changed state, not who looked." Reads are not logged, so the
+          trail is signal, not noise. The hook runs after the response and swallows its own errors, so auditing
+          can never slow down or break a clinical action.
+        </div>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:18px">Multi-tenant isolation and RBAC are enforced at the data layer,
+    not just hidden in the UI. See <a href="platform.html">Platform &amp; Security</a> for the full model.</p>
+  </div>
+</section>
+
+<!-- ============ ADMINISTRATION ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Administration</span>
+      <h2>The view from leadership</h2>
+      <p class="muted">A rollup of the operational signal that matters to whoever runs the hospital.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128200;</span> Admin</h3>
+        <p class="tag">Login persona: Admin</p>
+        <p>The leadership dashboard: a KPI rollup across the operation, drawn from the same live data the
+        floor is working in.</p>
+        <ul class="check">
+          <li><strong>Admin dashboard</strong> — KPI rollup including beds and AR invoices.</li>
+        </ul>
+      </div>
+
+      <div class="card t">
+        <h3><span class="ico">&#128279;</span> One source of numbers</h3>
+        <p>Because the dashboard reads the same backend as every worklist, the bed count the head nurse sees and
+        the AR figure the biller works are the figures leadership sees. No reconciling exports.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PATIENT EXPERIENCE ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Patient experience</span>
+      <h2>The patient's own app</h2>
+      <p class="muted">A dedicated patient application, separate from staff, with its own passwordless sign-in.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3><span class="ico">&#128241;</span> Patient</h3>
+        <p class="tag">Login: phone number + OTP (passwordless)</p>
+        <p>Everything the patient needs to engage with their own care, on web or mobile from the same codebase.</p>
+        <ul class="check">
+          <li><strong>Appointments</strong> — book and view visits.</li>
+          <li><strong>Payments</strong> — settle what they owe.</li>
+          <li><strong>Medical record</strong> — their own clinical record.</li>
+          <li><strong>Visit summary</strong> — a recap after an encounter.</li>
+          <li><strong>Medications</strong> — their current medications.</li>
+          <li><strong>Telemed lobby</strong> — the waiting room for a remote consult (see roadmap note).</li>
+        </ul>
+      </div>
+
+      <div class="card a">
+        <h3><span class="ico">&#127909;</span> On the roadmap</h3>
+        <p>The telemed lobby and consult worklist exist as the interface for remote care today.</p>
+        <div class="callout a">
+          <strong>Phased:</strong> the <em>video consult</em> itself and the <em>ambient scribe</em> are interface
+          stubs at this stage, on the roadmap rather than shipped. Patient-auth hardening and real SSO are also
+          phased. We present these honestly, not as done.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AT A GLANCE ============ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">At a glance</span>
+      <h2>The full roster, one table</h2>
+      <p class="muted">Every staff role, its login persona, and its primary worklist. All return seeded data
+      in the live demo build.</p>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Role</th><th>Login persona</th><th>Primary worklists</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Admin</strong></td><td>Admin</td><td>Admin dashboard / KPI rollup (beds, AR invoices)</td></tr>
+        <tr><td><strong>Doctor</strong></td><td>Doctor</td><td>Patient panel, daily schedule, chart summary, clinical notes, order entry, orders &amp; results, e-prescribe, CDS (risk scores + safety alerts), telemed</td></tr>
+        <tr><td><strong>Nurse</strong></td><td>Nurse</td><td>eMAR / medication pass, record vitals, nursing notes, task list, SBAR handover</td></tr>
+        <tr><td><strong>Head Nurse</strong></td><td>Head Nurse</td><td>Ward board (bed management across wards)</td></tr>
+        <tr><td><strong>Pharmacist</strong></td><td>Pharmacist</td><td>Dispense queue, pharmacy inventory</td></tr>
+        <tr><td><strong>Lab Tech</strong></td><td>Lab Tech</td><td>Lab result entry, specimen tracking</td></tr>
+        <tr><td><strong>Radiographer</strong></td><td>Radiographer</td><td>Imaging modality worklist, image capture + QC</td></tr>
+        <tr><td><strong>Biller</strong></td><td>Biller</td><td>AR worklist, invoice detail, payment posting, denials follow-up queue, payments reconciliation ledger</td></tr>
+        <tr><td><strong>Facilities Tech</strong></td><td>Facilities Tech</td><td>Asset register, work-order queue, PM schedule, biomedical equipment service (calibration tracking)</td></tr>
+        <tr><td><strong>EMS Crew</strong></td><td>EMS Crew</td><td>Ambulance unit status board, dispatch + ED handoff, completed trip history</td></tr>
+        <tr><td><strong>Clinic Coordinator</strong></td><td>Clinic Coordinator</td><td>Outpatient clinic management, clinic day reports</td></tr>
+        <tr><td><strong>HR Manager</strong></td><td>HR Manager</td><td>Staff credentialing vault (expiry tracking + verify), hospital staffing overview</td></tr>
+        <tr><td><strong>Compliance Officer</strong></td><td>Compliance Officer</td><td>Audit / compliance log (read-only over the audit trail)</td></tr>
+        <tr><td><strong>Patient</strong></td><td>Patient (phone + OTP)</td><td>Appointments, payments, medical record, visit summary, medications, telemed lobby</td></tr>
+      </tbody>
+    </table>
+    <hr class="soft">
+    <p class="muted">Underneath all of it: a FHIR R4-aligned data model, ~28 granular RBAC permissions guarding
+    every endpoint, strict tenant isolation, and an automatic audit trail. The clinical data these roles produce
+    is exposed over standards-based APIs, see <a href="interoperability.html">Interoperability</a>, and the
+    security model behind it is detailed in <a href="platform.html">Platform &amp; Security</a>.</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section>
+  <div class="wrap center">
+    <span class="eyebrow">See it for yourself</span>
+    <h2>Walk a real worklist, in your hospital's shape</h2>
+    <p class="lead muted" style="margin:0 auto">The fastest way to judge "did they think of everything" is to
+    log in as a role and work its list. We provision demo access per hospital on request.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="demo.html">Request a demo</a>
+      <a class="btn btn-ghost" href="adoption.html">See the adoption path</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand" style="margin-bottom:6px"><span class="dot"></span> Greyquill</div>
+      <div class="fnote">A Greyquill Software product. Built for hospitals and health systems.</div>
+    </div>
+    <div class="fnote">
+      <a href="index.html">Overview</a> &nbsp;·&nbsp;
+      <a href="features.html">Capabilities</a> &nbsp;·&nbsp;
+      <a href="interoperability.html">Interoperability</a> &nbsp;·&nbsp;
+      <a href="platform.html">Platform &amp; Security</a> &nbsp;·&nbsp;
+      <a href="adoption.html">Adoption</a> &nbsp;·&nbsp;
+      <a href="demo.html">Request a demo</a><br>
+      greyquill.io · This is a product showcase. Live demo access is provisioned per hospital on request.
+    </div>
+  </div>
+</footer>
+</body>
+</html>

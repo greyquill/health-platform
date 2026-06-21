@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a demo · Greyquill Health Platform</title>
+<meta name="description" content="Greyquill Health Platform — a white-label, multi-tenant hospital operating system with FHIR R4 and HL7 v2 interoperability, role-based clinical, revenue, pharmacy, lab, imaging, facilities, EMS and compliance modules.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="dot"></span> Greyquill Health Platform</a>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="features.html">Capabilities</a>
+      <a href="interoperability.html">Interoperability</a>
+      <a href="platform.html">Platform &amp; Security</a>
+      <a href="adoption.html">Adoption</a>
+      <a class="cta active" href="demo.html">Request a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">See it live</span>
+    <h1>A guided tour of Greyquill, end to end</h1>
+    <p class="lead">The best way to understand a hospital operating system is to watch a real patient move through it. We will walk your team across the clinical floor, the revenue desk, the pharmacy, the lab, dispatch, and the compliance office, and show every role doing real work against a live build.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:hello@greyquill.io?subject=Greyquill%20Health%20Platform%20demo">Request live access</a>
+      <a class="btn btn-ghost" href="features.html">Browse the capabilities</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The walkthrough</span>
+      <h2>What a demo covers</h2>
+      <p class="muted">A single patient journey, followed across every persona who touches it. This is roughly how a live session runs: one continuous story, with each role picking up where the last left off.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>A patient is admitted, with no one typing it in</h3>
+        <p>An existing hospital system fires an ADT A01 admit over HL7 v2. Greyquill ingests the message, parses the MSH and PID segments, and the patient appears on the floor automatically. No double entry, no custom integration. This is the coexistence layer at work, and it is where most demos begin. <a href="interoperability.html">See the interoperability detail.</a></p>
+      </div>
+      <div class="step">
+        <h3>The doctor reviews the chart and places orders</h3>
+        <p>The doctor opens the patient panel, reads the chart summary, and enters orders and an e-prescription. As the prescription is written, clinical decision support surfaces a drug and allergy safety alert before it is signed, so the risk is caught at the point of decision rather than after.</p>
+      </div>
+      <div class="step">
+        <h3>The nurse runs the medication pass</h3>
+        <p>The nurse records vitals, works the eMAR to administer the ordered medications, and adds a nursing note. At shift change, the nurse files a structured SBAR handover so the next shift inherits the full picture, not a hallway summary.</p>
+      </div>
+      <div class="step">
+        <h3>Pharmacy, lab, and imaging pick up the orders</h3>
+        <p>The order flows downstream. Pharmacy works its dispense queue against live inventory. The lab tech enters results and tracks the specimen. The radiographer works a modality worklist and captures images with a QC step. Each role sees only its own queue, already populated.</p>
+      </div>
+      <div class="step">
+        <h3>Billing works the money</h3>
+        <p>The biller opens the AR worklist, reviews the invoice, posts a payment, and clears a denial through the follow-up queue, then reconciles it on the payments ledger. The clinical visit and the revenue cycle are the same system, not two databases stitched together.</p>
+      </div>
+      <div class="step">
+        <h3>The operational breadth most platforms skip</h3>
+        <p>Beyond the bedside: facilities and biomed work the asset register, work orders, and equipment calibration; the EMS crew works the ambulance status board, dispatch, and completed trip history; the clinic coordinator runs outpatient clinics and day reports; and HR works the credentialing vault, tracking license and credential expiry. A hospital is more than its wards, and so is this.</p>
+      </div>
+      <div class="step">
+        <h3>The compliance officer sees everything that just happened</h3>
+        <p>The compliance officer opens the audit trail and finds every write from the journey above, each tagged with the acting user and, where relevant, the patient. Reads are not logged, only changes to state. To close the loop, the same patient's full clinical record exports as a FHIR <code>$everything</code> Bundle, demonstrating the data is portable, not locked in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Reviewer checklist</span>
+      <h2>Roles you can explore</h2>
+      <p class="muted">A live demo gives you 13 staff roles plus the patient app, all on one unified login model where the role and its permissions come from the account. Here is what to look for in each.</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Role</th><th>What to look for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Admin</td><td>Admin dashboard and KPI rollup across beds and AR invoices.</td></tr>
+        <tr><td>Doctor</td><td>Patient panel, order entry, e-prescribing, clinical notes, and CDS risk scores and safety alerts.</td></tr>
+        <tr><td>Nurse</td><td>eMAR medication pass, vitals capture, task list, and the SBAR handover.</td></tr>
+        <tr><td>Head Nurse</td><td>Ward board and bed management across wards.</td></tr>
+        <tr><td>Pharmacist</td><td>Dispense queue and pharmacy inventory.</td></tr>
+        <tr><td>Lab Tech</td><td>Lab result entry and specimen tracking.</td></tr>
+        <tr><td>Radiographer</td><td>Imaging modality worklist, image capture, and QC.</td></tr>
+        <tr><td>Biller</td><td>AR worklist, payment posting, denials follow-up, and the reconciliation ledger.</td></tr>
+        <tr><td>Facilities Tech</td><td>Asset register, work-order queue, PM schedule, and biomedical calibration tracking.</td></tr>
+        <tr><td>EMS Crew</td><td>Ambulance unit status board, dispatch and ED handoff, and completed trip history.</td></tr>
+        <tr><td>Clinic Coordinator</td><td>Outpatient clinic management and clinic day reports.</td></tr>
+        <tr><td>HR Manager</td><td>Staff credentialing vault with license and credential expiry tracking, plus staffing overview.</td></tr>
+        <tr><td>Compliance Officer</td><td>Read-only view over the full audit trail of every staff write.</td></tr>
+        <tr><td>Patient</td><td>Appointments, payments, medical record, telemed lobby, visit summary, and medications.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Access</span>
+      <h2>How access works</h2>
+    </div>
+
+    <div class="callout">
+      <p><strong>The live environment is access-controlled.</strong> Greyquill provisions a time-boxed demo login for your hospital when you request one, which is why there are deliberately no credentials or URLs on this public page. We hand them to your reviewers directly, scoped to the people who need them.</p>
+    </div>
+
+    <ul class="check">
+      <li><strong>Synthetic data only.</strong> The demo runs on seeded, sample data. No real patients, no real records, nothing sensitive ever touches the demo build.</li>
+      <li><strong>One login, every role.</strong> You explore the full set of personas through a single unified staff login, with the patient app alongside it.</li>
+      <li><strong>Multi-tenant by design.</strong> Your demo tenant is isolated at the data layer, so what you see is yours and only yours.</li>
+      <li><strong>Time-boxed.</strong> Access is granted for the evaluation window and retired afterward, with no lingering credentials.</li>
+    </ul>
+
+    <p class="muted" style="margin-top:18px">This is a pilot build with seeded sample data. We will be candid in the session about what is fully shipped and what is phased on the roadmap, so you can plan against reality.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap center">
+    <span class="eyebrow">Next step</span>
+    <h2>Walk through it with us</h2>
+    <p class="lead" style="margin:0 auto">Tell us a little about your hospital and we will provision a demo login and book a guided tour. If you want to see how a rollout would actually land, the adoption plan lays out the phases.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="mailto:hello@greyquill.io?subject=Greyquill%20Health%20Platform%20demo">Request live access</a>
+      <a class="btn btn-ghost" href="adoption.html">See the rollout plan</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand" style="margin-bottom:6px"><span class="dot"></span> Greyquill</div>
+      <div class="fnote">A Greyquill Software product. Built for hospitals and health systems.</div>
+    </div>
+    <div class="fnote">
+      <a href="index.html">Overview</a> &nbsp;·&nbsp;
+      <a href="features.html">Capabilities</a> &nbsp;·&nbsp;
+      <a href="interoperability.html">Interoperability</a> &nbsp;·&nbsp;
+      <a href="platform.html">Platform &amp; Security</a> &nbsp;·&nbsp;
+      <a href="adoption.html">Adoption</a> &nbsp;·&nbsp;
+      <a href="demo.html">Request a demo</a><br>
+      greyquill.io · This is a product showcase. Live demo access is provisioned per hospital on request.
+    </div>
+  </div>
+</footer>
+</body>
+</html>
